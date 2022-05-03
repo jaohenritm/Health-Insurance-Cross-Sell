@@ -14,20 +14,20 @@ class HealthInsurance(object):
         self.fe_policy_sales_channel_scaler =   pickle.load(open(self.home_path + 'parameter/fe_policy_sales_channel_scaler.pkl', 'rb'))
     
     def data_cleaning(self, df1):
-        cols_new = ['id', 'gender', 'age', 'region_code', 'policy_sales_channel', 'driving_license', 'vehicle_age', 'vehicle_damage', 'previously_insured', 'annual_premium', 'vintage', 'response']
+        cols_new = ['id', 'gender', 'age', 'region_code', 'policy_sales_channel', 'driving_license', 'vehicle_age', 'vehicle_damage', 'previously_insured', 'annual_premium', 'vintage']
 
         df1.columns = cols_new
-                                                      
+                
         return df1
     
     def feature_engineering(self, df2):
         # vehicle_age
         df2['vehicle_age'] = df2['vehicle_age'].apply(lambda x: 'over_2_years' if x == '> 2 Years' else 'between_1_2_year'
-                                                                               if x == '1-2 Year' else 'below_1_year')
+                                                                        if x == '1-2 Year' else 'below_1_year')
 
         # vehicle_damage
-        df2['vehicle_damage'] = df2['vehicle_damage'].apply(lambda x: 1 if x == 'Yes' else 0)
-        
+        df2['vehicle_damage'] = df2['vehicle_damage'].apply(lambda x: 1 if x == 'Yes' else 0)   
+	
         return df2
     
     def data_preparation(self, df5):

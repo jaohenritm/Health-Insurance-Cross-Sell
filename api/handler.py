@@ -5,7 +5,7 @@ from flask                           import Flask, request, Response
 from healthinsurance.HealthInsurance import HealthInsurance
 
 # load model
-model = pickle.load(open('models/model_logistic_regression.pkl', 'rb'))
+model = pickle.load(open('models/model_xgboost_classifier.pkl', 'rb'))
 
 # initialize API
 app = Flask(__name__)
