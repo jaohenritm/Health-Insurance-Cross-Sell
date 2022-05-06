@@ -16,7 +16,7 @@ So the company gave us a list with other clients that did not answered the resea
 
 # 3. Bringing the Solution to Life
 
-Observation: This solution is ficticious and was developed with open data that was made avaiable through the Kaggle platform.
+Observation: This solution is ficticious and was developed with open data that was made avaiable through the Kaggle platform. But to practice, I got this dataset from a AWS server.
 
 Link: https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction
 
