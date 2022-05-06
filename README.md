@@ -101,4 +101,20 @@ After doing everything that was necessary to build our Machine Learning model, n
 As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients. As we can see in this lift curve, the model developed by us is nearly three times better than the baseline one.
 
 # 5. Deployment
-Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and could be acessed in this link: https://hics-model.herokuapp.com/
+Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and could be acessed by clinking in the icon below.
+
+For the business team we created a Google Sheets spreadsheet that the user can insert the attributes of the client and then by clicking on the button, the spreadsheet will return the propensity score of that client by a number that varies from 0 to 1.
+
+<a href="https://hics-model.herokuapp.com/" target="_blank"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" target="_blank"></a>
+</div>
+
+<a href="https://docs.google.com/spreadsheets/d/1z4MgVGyOG4tLDsUY_-qb9z0Wxf9WL_nMA-f6uzluXYQ/edit" target="_blank"><img src="https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white" target="_blank"></a>
+</div>
+
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/spreadsheet.png)
+
+# 6. Final Result
+The objective was to practice and learn more about "Learn to Rank" solutions, and I think that it was a satisfactory one as we learned more about 
+Business, Python and a tip of JavaScript.
+
+For the Insurance All company the new model have 3x more effectiveness in achieving their clients. So if the company would sell 5,000 insurances, now they will sell nearly 15,000 with these same number of calls. It's now for the business team to decide if that metrics are a satisfactory one or if we should try to improve our model.
