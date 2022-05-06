@@ -41,6 +41,13 @@ Link: https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-pre
 ## 3.2. Exploratory Data Analysis
 On our exploratory data analysis we checked some business hypothesis to get some some informations about the data and to learn about the business itself.
 
+
+### These heatmap shows us the correlation between all predictors and our response feature.
+
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/HeatMap.png)
+
+
+### Table of All Hypothesis
 |Hypothesis  |  Conclusion   | Relevance |
 |------------|  ------------ | -----------|
 |H1: In average, Female should buy car insurance.                                 | False | Low |
@@ -62,3 +69,36 @@ After doing the Exploratory Data Analysis and implementing Boruta and Features I
 - vehicle_damage
 - previously_insured
 - policy_sales_channel
+
+## 3.4 Machine Learning Modelling
+For this case, we used some machine learning algorithms to rank these clients per their propensity score.
+
+Machine Learning Models:
+- K-nearest Neighbors Algorithm
+- Logistic Regression
+- Random Forest
+- XGBoost
+- LightGBM
+- Extra Trees
+
+
+Amongst them, the model that achieved the bests results was the Random Forest, but in this case, as the Random Forest turned out to be a super heavy model that can't be uploaded in our free Heroku platform, we proceeded with the second one, which was the XGBoost.
+
+# 4. Performance
+
+## 4.1 XGBoost Results
+So we used as our metrics the **Precision at K and Recall at K**, as the business team is going to do to do 20,000 calls, we will use the Precision and Recall at 20,000.
+
+**Precision at 20,000: 0.32**
+
+**Recall at 20,000: 0.70**
+
+## 4.2 Business Performance
+After doing everything that was necessary to build our Machine Learning model, now we need to see how the things turns out in the business context.
+
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/results.png)
+
+As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients. As we can see in this lift curve, the model developed by us is nearly three times better than the baseline one.
+
+# 5. Deployment
+Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and could be acessed in this link: https://hics-model.herokuapp.com/
