@@ -82,7 +82,7 @@ Machine Learning Models:
 - Extra Trees
 
 
-Amongst them, the model that achieved the bests results was the Random Forest, but in this case, as the Random Forest turned out to be a super heavy model that can't be uploaded in our free Heroku platform, we proceeded with the second one, which was the XGBoost.
+Amongst them, the model that achieved the better result was the Random Forest, but in this case, as the Random Forest turned out to be a super heavy model that can't be uploaded in our free Heroku platform, we proceeded with the second one, which was the XGBoost.
 
 # 4. Performance
 
