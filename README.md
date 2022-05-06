@@ -101,7 +101,7 @@ After doing everything that was necessary to build our Machine Learning model, n
 As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients. As we can see in this lift curve, the model developed by us is nearly three times better than the baseline one.
 
 # 5. Deployment
-Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and could be acessed by clinking in the icon below.
+Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and can be accessed by clicking in the icon below.
 
 For the business team we created a Google Sheets spreadsheet where the user can insert the attributes of the client and then by clicking on the button, the spreadsheet will return the propensity score of that client by a number that varies from 0 to 1.
 
@@ -112,6 +112,8 @@ For the business team we created a Google Sheets spreadsheet where the user can 
 </div>
 
 ![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/spreadsheet.png)
+
+As we can see in this image, the most propense client to buy our car insurance is the one identified by the ID: 132632.
 
 # 6. Final Result
 The objective was to practice and learn more about "Learn to Rank" solutions, and I think that it was a satisfactory one as we learned more about 
