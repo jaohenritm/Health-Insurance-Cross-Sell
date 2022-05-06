@@ -1,7 +1,7 @@
 # Health-Insurance-Cross-Sell
 
 # 1. Context
-This project is based in a Kaggle challenge which an insurance company wants to start a cross-sell strategy. Their objective is to sell car insurance for their clients that already have bought a health insurance with them, for that they made a research and asked to their clients if they are interested in that car insurance.
+This project is based in a Kaggle challenge which an insurance company wants to start a cross-sell strategy. Their objective is to sell these car insurance for their clients that already have bought a health insurance with them, for that they made a research and asked to their clients if they are interested or not in buying that vehicle insurance.
 
 # 2. Challenge
 So the company gave us a list with other clients that did not answered the research. As the company only have a budget to contact 20.000 clients, our job is to find out which clients in this list are the most propense to buy our car insurance to achieve the maximum profit for the company.
@@ -103,7 +103,7 @@ As 20,000 represents nearly 20% of our total test population, if we were to call
 # 5. Deployment
 Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and could be acessed by clinking in the icon below.
 
-For the business team we created a Google Sheets spreadsheet that the user can insert the attributes of the client and then by clicking on the button, the spreadsheet will return the propensity score of that client by a number that varies from 0 to 1.
+For the business team we created a Google Sheets spreadsheet where the user can insert the attributes of the client and then by clicking on the button, the spreadsheet will return the propensity score of that client by a number that varies from 0 to 1.
 
 <a href="https://hics-model.herokuapp.com/" target="_blank"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" target="_blank"></a>
 </div>
