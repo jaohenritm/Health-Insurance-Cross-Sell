@@ -98,7 +98,7 @@ After doing everything that was necessary to build our Machine Learning model, n
 
 ![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/results.png)
 
-As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients. As we can see in this lift curve, the model developed by us is nearly three times better than the baseline one.
+As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients. So this data solution brings an increase of 40% on total revenue for the company as our model is nearly three times better than the baseline one.
 
 # 5. Deployment
 Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and can be accessed by clicking in the icon below.
