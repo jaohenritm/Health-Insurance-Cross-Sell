@@ -12,47 +12,47 @@ So the company gave us a list with other clients that did not answered the resea
 - Create a Machine Learning model that will tell us the propensity score of each client. (Learn to Rank)
 - The propensity score of each customer will be returned in Google Sheets API.
 
-# 3. Bringing the Solution to Life
+# 3. Solution Strategy
 My strategy to solve this challenge was:
 
-- Create a Machine Learning model that will tell us the propensity score of each client. (Learn to Rank)
+**Step 1: Data Description:** My goal is to use statistics metrics to identify data outside the scope of business.
 
-Observation: This solution is ficticious and was developed with open data that was made avaiable through the Kaggle platform. But to practice, I got this dataset from a AWS server.
+**Step 2: Feature Engineering:** In this part we derive new attributes based on the original features with the objective to better describe the phenomenon that will be modeled.
 
-Link: https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction
+**Step 3: Data Filtering:** Filter some rows and columns that do not match the scope of the business or can't be used for any reason.
 
-## 3.1 Data Description
+**Step 4: Exploratory Data Analysis:** Explore the data to find insights and better understand the impac of variables on model learning.
 
-| Variable | Definition |
-| -------- | ---------- |
-| id	               | Unique ID for the customer |
-| Gender             | Gender of the customer |
-| Age	               | Age of the customer |
-| Driving_License    | 0: Customer does not have DL, 1: Customer already has DL |
-| Region_Code     	 | Unique code for the region of the customer |
-| Previously_Insured | 1 : Customer already has Vehicle Insurance, 0 : Customer doesn't have Vehicle Insurance |
-| Vehicle_Age        |	Age of the Vehicle |
-| Vehicle_Damage     |	1 : Customer got his/her vehicle damaged in the past. 0 : Customer didn't get his/her vehicle damaged in the past. |
-| Annual_Premium     |	The amount customer needs to pay as premium in the year | 
-| PolicySalesChannel |	Anonymized Code for the channel of outreaching to the customer ie. Different Agents, Over Mail, Over Phone, In Person, etc. |
-| Vintage	Number     | Number of Days, Customer has been associated with the company |
-| Response           |	1 : Customer is interested, 0 : Customer is not interested |
+**Step 5: Data Preparation:** Prepare the data so that the Machine Learning models can learn the specific behavior.
 
-As we explore the data, we discover that this dataset have 381,109 rows and 12 columns. That means that we can process these data in our own computer.
+**Step 6: Feature Selection:** Selection of the most significant attributes for training the model.
 
-## 3.2 Feature Engineering:
-![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/MindMap.png)
+**Step 7: Machine Learning Modelling:** Machine Learning model training.
 
-## 3.3 Data Filtering:
-In this step, there was no need to filter any features.
+**Step 8: Hyperparameter Fine Tunning:** Choose the best values for each of the parameters of the model selected on the previous step.
 
-## 3.4 Exploratory Data Analysis
-On our exploratory data analysis we checked some business hypothesis to get some some informations about the data and to learn about the business itself.
+**Step 9: Convert Model Performance to Business Values:** Convert the performance of the Machine Learning model into a business result.
+
+**Step 10: Deploy Model to Production:** Publish the model in a cloud environment so that other people or services can use the results to improve their business decision.
+
+# 4. Top 3 Data Insights
+
+**Hypothesis 3:** Clients with vehicle damage should buy more car insurance.
+
+**True:** As observed the majority of clients that wants to buy a car insurance have already suffered a vehicle damage.
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/h3.png)
 
 
-### These heatmap shows us the correlation between all predictors and our response feature.
+**Hypothesis 5:** Clients that don't have a driving license should not buy a car insurance.
 
-![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/HeatMap.png)
+**True:** In average, the clients that don't have a driving license is nearly 3x less than clients that have a driving license.
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/h5.png)
+
+
+**Hypothesis 6:** People with more recent cars should be more propense to buy a car insurance.
+
+**False:** As we can see in this graphic, people with car older than 2 years are the most propense to buy.
+![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/h6.png)
 
 
 ### Table of All Hypothesis
@@ -65,65 +65,50 @@ On our exploratory data analysis we checked some business hypothesis to get some
 |H5: Clients that don't have a driving license should not buy a car insurance.    | True  | High |
 |H6: People with more recent cars should be more propense to buy a car insurance. | False | High |
 
-## 3.5 Data Preparation
-So we separeted our dataset in train and validation with a proportion of 80% train and 20% validation.
+# 5. Machine Learning Applied
 
-## 3.6 Feature Selection
+In this part, we tested this algorithms:
 
-After doing the Exploratory Data Analysis and implementing Boruta and Features Importance, we came to the conclusion that the best features to use for our model were: 
-
-- vintage
-- annual_premium
-- age
-- region_code
-- vehicle_damage
-- previously_insured
-- policy_sales_channel
-
-## 3.7 Machine Learning Modelling
-For this case, we used some machine learning algorithms to rank these clients per their propensity score.
-
-Machine Learning Models:
-- K-nearest Neighbors Algorithm
 - Logistic Regression
 - Random Forest
 - XGBoost
 - LightGBM
 - Extra Trees
 
-Amongst them, the model that achieved the better result was the Random Forest, but in this case, as the Random Forest turned out to be a super heavy model that can't be uploaded in our free Heroku platform, we proceeded with the second one, which was the XGBoost.
+# 6. Machine Learning Performance
 
-# 4 Machine Learning Performance
-
-## 4.1 XGBoost Results
 So we used as our metrics the **Precision at K and Recall at K**, as the business team is going to do to do 20,000 calls, we will use the Precision and Recall at 20,000.
 
-**Precision at 20,000: 0.32**
+| Model Name         | Precision at K | Recall at K |
+| ------------------ | -------------- | ----------- |
+| Random Forest Classifier | 0.33     | 0.09        |
+| Light GBM Classifier | 0.33         | 0.70        |
+| XGBoost Classifier | 0.32           | 0.70        |
+| KNN Regressor Classifier | 0.29     | 0.62        |
+| Logistic Regression Classifier | 0.28 | 0.60      |
 
-**Recall at 20,000: 0.70**
+As we can see the Random Forest Classifier achieved the best result. But because RandomForest is a super heavy model, we will use the Light GBM Classifier for this project.
 
-## 4.2 Business Performance
+
+# 7 Business Results
 After doing everything that was necessary to build our Machine Learning model, now we need to see how the things turns out in the business context.
 
 ![alt_text](https://github.com/jaohenritm/Health-Insurance-Cross-Sell/blob/main/img/results.png)
 
-As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients.
+As 20,000 represents nearly 20% of our total test population, if we were to call the 20,000 clients of this dataset, we should achieve nearly 60% of our total interested population meanwhile using our baseline model that number would be only 20% of our total interested clients.
 
 For the Insurance All company the new model have 3x more effectiveness in achieving their clients. 
 
 So now, to do a simulation we will consider somethings:
-- The validation dataset contains the same distribution as the Train dataset.
-- For every sale, the company earns $2,000 dollars.
+1. The validation dataset contains the same distribution as the Train dataset.
+2. For every sale, the company earns $2,000 dollars.
+3. The company will call 20,000 clients.
 
----
+Using the random method (baseline), the Insurance All would earn an estimative of **$10,160,000 dollars.**
 
-**Random Method: $10,160,000.**
+Using the machine learning method developed in this project, the company would earn an estimative of **$30,480,000 dollars.**
 
-**Machine Learning Model: $30,480,000.**
-
-Applying our machine learning model instead the random one on the validation dataset, the company would earn approximately **$20,320,000 dollars** more.
-
-# 5. Deployment
+# 8. Deployment
 Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and can be accessed by clicking in the icon below.
 
 For the business team we created a Google Sheets spreadsheet where the user can insert the attributes of the client and then by clicking on the button, the spreadsheet will return the propensity score of that client by a number that varies from 0 to 1.
@@ -138,6 +123,5 @@ For the business team we created a Google Sheets spreadsheet where the user can 
 
 As we can see in this image, the most propense client to buy our car insurance is the small sample of the dataset is identified by the ID: 132632.
 
-# 6. Final Result
-The objective was to practice and learn more about "Learn to Rank" solutions, and I think that it was a satisfactory one as we learned more about 
-Business, Python and a tip of JavaScript.
+# 9. Final Result
+The objective was to practice, learn and demonstrate the power of using data solutions, and I think that the result of this project was a satisfactory one as we learned more about Business Model, Python and also JavaScript.
