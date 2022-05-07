@@ -119,4 +119,12 @@ As we can see in this image, the most propense client to buy our car insurance i
 The objective was to practice and learn more about "Learn to Rank" solutions, and I think that it was a satisfactory one as we learned more about 
 Business, Python and a tip of JavaScript.
 
-For the Insurance All company the new model have 3x more effectiveness in achieving their clients. So if the company would sell 5,000 insurances, now they will sell nearly 15,000 with these same number of calls. It's now for the business team to decide if that metrics are a satisfactory one or if we should try to improve our model.
+For the Insurance All company the new model have 3x more effectiveness in achieving their clients. 
+
+So now, to do a simulation we will consider somethings:
+- The Test dataset which contains 127,000 clients.
+- The Test dataset contains the same distribution as the Train dataset.
+- For every sale, the company profits $2,000 dollars.
+
+Using our model instead the baseline one, the company would profit approximately **$25,400,000 dollars.**
+
