@@ -113,15 +113,15 @@ For the Insurance All company the new model have 3x more effectiveness in achiev
 
 So now, to do a simulation we will consider somethings:
 - The validation dataset contains the same distribution as the Train dataset.
-- For every sale, the company profits $2,000 dollars.
+- For every sale, the company earns $2,000 dollars.
 
 ---
 
-**Random Method: $10,160,000 profit.**
+**Random Method: $10,160,000.**
 
-**Machine Learning Model: $30,480,000 profit.**
+**Machine Learning Model: $30,480,000.**
 
-Applying our machine learning model instead the random one on the validation dataset, the company would profit approximately **$20,320,000 dollars** more.
+Applying our machine learning model instead the random one on the validation dataset, the company would earn approximately **$20,320,000 dollars** more.
 
 # 5. Deployment
 Our Machine Learning model was hosted in the Heroku (A cloud-based platform) and can be accessed by clicking in the icon below.
